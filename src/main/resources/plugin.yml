@@ -1,0 +1,17 @@
+name: pncRevice
+version: '${version}'
+main: ua.panic.pncrevice.PncRevice
+api-version: '1.16'
+commands:
+  revice:
+    usage: /revice (nickname)
+    permission: pncRevice.use
+permissions:
+  pncRevice.use: { default: op }
+  pncRevice.start: { default: op }
+  pncRevice.stop: { default: op }
+  pncRevice.addtime: { default: op }
+  pncRevice.started: { default: op }
+  pncRevice.setposs: { default: op }
+  pncRevice.reload: { default: op}
+  pncRevice.setspawn: { default: op }

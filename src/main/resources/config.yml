@@ -1,0 +1,120 @@
+checkpoint:
+  world: world
+  x: 0.5
+  y: 100.0
+  z: 0.5
+  yaw: 0.0
+  pitch: 0.0
+
+spawn:
+  world: world
+  x: 0.5
+  y: 64.0
+  z: 0.5
+  yaw: 0.0
+  pitch: 0.0
+
+timer:
+  default-seconds: 600
+  dop_time: 300
+  actionbar:
+    format: "<gray>Проверка: <#FFD166>%mm:ss%</#FFD166></gray>"
+    paused-chat: "<yellow>Проверка активна.</yellow>"
+    async-reformat: true #не трогать
+
+review-chat:
+  prefix: "<gray>[<light_purple>REVICE</light_purple>]</gray>"
+  role:
+    suspect: "<red>ПОДОЗРЕВАЕМЫЙ</red>"
+    moder: "<green>МОДЕР</green>"
+  format: "%prefix% %role% <white>%name%</white>: <gray>%message%</gray>"
+
+punish:
+  on-quit:
+    enabled: true
+    grace-seconds: 60   # можно 0 для мгновенного наказания
+    command: "ban %player% 7d Покинул проверку"
+
+messages:
+  command:
+    reload: "<green>Конфиг успешно перезагружен.</green>"
+    usage: "<yellow>Использование:</yellow> <white>/revice <player></white> <gray>или</gray> <white>/revice setposs</white>"
+    invalid: "<red>Неверная команда или синтаксис.</red>"
+    no-permission: "<red>Недостаточно прав.</red>"
+
+  start:
+    chat:
+      - "<green>Вы вызваны на проверку.</green>"
+      - "<gray>Следуйте инструкциям модератора.</gray>"
+    title:
+      title: "<yellow>Проверка</yellow>"
+      subtitle: "<gray>Не выходите с сервера</gray>"
+      fadein: 10
+      stay: 60
+      fadeout: 10
+    sound: "BLOCK_NOTE_BLOCK_PLING,1.0,1.5"
+
+  stop:
+    chat:
+      - "<green>Проверка завершена.</green>"
+      - "<gray>Спасибо за сотрудничество.</gray>"
+    title:
+      title: "<green>Чисто</green>"
+      subtitle: "<gray>Спасибо за сотрудничество</gray>"
+      fadein: 10
+      stay: 40
+      fadeout: 10
+    sound: "ENTITY_PLAYER_LEVELUP,1.0,1.0"
+
+  frozen:
+    chat: "<gray>Вы заморожены: запрещено двигаться/взаимодействовать/использовать команды.</gray>"
+
+permissions:
+  start: "pncRevice.start"
+  stop: "pncRevice.stop"
+  addtime: "pncRevice.addtime"
+  started: "pncRevice.started"
+  setposs: "pncRevice.setposs"
+  setspawn: "pncRevice.setspawn"
+  reload: "pncRevice.reload"
+
+formating_time:
+  time-one: "<gray>%s д.</gray> <yellow>%s ч.</yellow> <gray>%s м.</gray> <yellow>%s с.</yellow>"
+  time-two: "<yellow>%s ч.</yellow> <gray>%s м.</gray> <yellow>%s с.</yellow>"
+  time-three: "<yellow>%s м.</yellow> <gray>%s с.</gray>"
+  time-four: "<yellow>%s с.</yellow>"
+
+punish-gui:
+  manual-ban:
+    command: "ban %player% 7d Читы (revice)"
+
+GUI:
+  size: 27
+  title: "&5Revice &7• &fПанель"
+  items:
+    ban:
+      display_name: "&cЗабанить"
+      lore:
+        - "&7Выдаёт бан и завершает проверку"
+      item: REDSTONE_BLOCK
+      slots: ["10"]
+    addtime:
+      display_name: "&a+30 сек"
+      lore: ["&7Добавляет 30 секунд к таймеру"]
+      item: CLOCK
+      slots: ["12"]
+    pause:
+      display_name: "&eПауза таймера"
+      lore: ["&7Переключить паузу"]
+      item: LEVER
+      slots: ["14"]
+    stop:
+      display_name: "&cСтоп"
+      lore: ["&7Завершить проверку"]
+      item: BARRIER
+      slots: ["16"]
+    frame:
+      display_name: ""
+      lore: []
+      item: GRAY_STAINED_GLASS_PANE
+      slots: ["0-9","17-26"]
